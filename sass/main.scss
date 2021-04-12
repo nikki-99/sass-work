@@ -1,0 +1,45 @@
+// variables
+$primary-color: rgb(247, 71, 100);
+$secondary-color: rgb(231, 123, 0);
+// array of variables
+$w:("light": 100,"regular": 300, "semi-bold": 600, "bold": 900);
+
+// function
+@function size($n){
+    @if $n < 10{
+        @return 2rem;
+    }
+    @else{
+        @return 1rem;
+    }
+    
+
+}
+
+// mixin returns set of style 
+@mixin flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// calculation should be in same unit 
+
+
+
+div{
+    height: 700px;
+    width: 400px;
+    margin: auto;
+    @include flex();
+    
+    .para{
+        color: $secondary-color;
+        cursor: pointer;
+        font-weight: map-get($w, bold);
+        font-size: size(6);
+        &:hover{
+            color: $primary-color;
+        }
+    }
+}
